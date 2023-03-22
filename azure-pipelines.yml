@@ -25,14 +25,18 @@ steps:
   inputs:
     command: 'build'
     arguments: '--configuration $(buildConfiguration)'
-    projects: '**/*.csproj'
+    projects: |
+      **/*.csproj
+      !**/MVC.csproj
   displayName: 'dotnet build $(buildConfiguration) --no-restore'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet pack'
   inputs:
     command: 'pack'
-    projects: '**/*.csproj'
+    projects: |
+      **/*.csproj
+      !**/MVC.csproj
     arguments: '-o $(Build.ArtifactStagingDirectory)/Output --no-build'
 
 - task: DotNetCoreCLI@2
