@@ -13,9 +13,10 @@ steps:
 - task: DotNetCoreCLI@2
   inputs:
     command: 'pack'
-    packagesToPack: '**/Account.RCL.csproj'
+    packagesToPack: '**/*.csproj'
     versioningScheme: 'off'
     arguments: '--output $(Build.ArtifactStagingDirectory)'
+    workingDirectory: 'MVC/Account/Account.RCL'
 
 - task: PublishBuildArtifacts@1
   inputs:
