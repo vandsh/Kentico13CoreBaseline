@@ -39,11 +39,7 @@ steps:
   inputs:
     command: 'pack'
     buildProperties: '--output $(Build.ArtifactStagingDirectory)/Output --no-build'
-    packagesToPack: |
-      **/*.csproj
-      !**/MVC.csproj
-      !**/ImageUploaderInlineControl.RCL.KX13.csproj
-      !**/WidgetizedHeaderFooter.RCL.KX13.csproj
+    packagesToPack: '**/*.csproj;!**/MVC.csproj;!**/ImageUploaderInlineControl.RCL.KX13.csproj;!**/WidgetizedHeaderFooter.RCL.KX13.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: "Publish packages"
