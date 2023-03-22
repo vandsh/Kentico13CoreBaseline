@@ -11,15 +11,15 @@ pool:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
   inputs:
     command: 'pack'
-    packagesToPack: '**/*.csproj'
-    versioningScheme: 'off'
-    arguments: '--output $(Build.ArtifactStagingDirectory)'
-    workingDirectory: 'MVC/Account/Account.RCL'
-
-- task: PublishBuildArtifacts@1
+    projects: '**/*.csproj'
+    arguments: '-o $(Build.ArtifactStagingDirectory)/Output --no-build'
+- task: DotNetCoreCLI@2
+  displayName: "Publish packages"
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
-    publishLocation: 'Container'
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/Output/*.*nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'guid'
