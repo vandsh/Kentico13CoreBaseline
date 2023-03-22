@@ -38,8 +38,8 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: 'pack'
-    arguments: '--output $(Build.ArtifactStagingDirectory)/Output --no-build'
-    projects: |
+    buildProperties: '--output $(Build.ArtifactStagingDirectory)/Output --no-build'
+    packagesToPack: |
       **/*.csproj
       !**/MVC.csproj
       !**/ImageUploaderInlineControl.RCL.KX13.csproj
