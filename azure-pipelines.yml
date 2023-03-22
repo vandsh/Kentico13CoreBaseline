@@ -38,8 +38,8 @@ steps:
   displayName: 'dotnet pack'
   inputs:
     command: 'pack'
-    buildProperties: '--no-build'
     packDirectory: '$(Build.ArtifactStagingDirectory)/Output'
+    nobuild: true
     packagesToPack: '**/*.csproj;!**/MVC.csproj;!**/ImageUploaderInlineControl.RCL.KX13.csproj;!**/WidgetizedHeaderFooter.RCL.KX13.csproj'
 
 - task: DotNetCoreCLI@2
