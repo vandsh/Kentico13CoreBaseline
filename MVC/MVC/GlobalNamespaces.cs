@@ -4,18 +4,17 @@ global using System.Linq;
 // Extensions
 global using RelationshipsExtended;
 
-// Intefaces
-global using Generic.Repositories.Interfaces;
-global using Generic.Services.Interfaces;
+/* Here's some various GLobal using that are common amongst libraries */
+global using System;
+global using System.Linq;
 
-// Caching
+global using Microsoft.AspNetCore.Mvc;
+global using Microsoft.AspNetCore.Http;
+
+global using Core.Repositories;
+global using Core.Services;
+global using Core.Models;
+global using Core.Extensions;
+
+global using CSharpFunctionalExtensions;
 global using MVCCaching;
-global using MVCCaching.Base.Core.Interfaces;
-
-// Models
-global using Generic.Models;
-global using Generic.Enums;
-global using Generic.Library;
-
-// Other
-global using XperienceCommunity.Authorization;
