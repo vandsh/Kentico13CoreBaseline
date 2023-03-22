@@ -18,9 +18,9 @@ steps:
     command: 'restore'
     projects: |
       **/*.csproj
-      !**/MVC.csproj
-      !**/ImageUploaderInlineControl.RCL.KX13.csproj
-      !**/WidgetizedHeaderFooter.RCL.KX13.csproj
+      !**/*MVC.csproj
+      !**/*ImageUploaderInlineControl.RCL.KX13.csproj
+      !**/*WidgetizedHeaderFooter.RCL.KX13.csproj
     feedsToUse: 'select'
     
 - task: DotNetCoreCLI@2
@@ -29,9 +29,9 @@ steps:
     arguments: '--configuration $(buildConfiguration)'
     projects: |
       **/*.csproj
-      !**/MVC.csproj
-      !**/ImageUploaderInlineControl.RCL.KX13.csproj
-      !**/WidgetizedHeaderFooter.RCL.KX13.csproj
+      !**/*MVC.csproj
+      !**/*ImageUploaderInlineControl.RCL.KX13.csproj
+      !**/*WidgetizedHeaderFooter.RCL.KX13.csproj
   displayName: 'dotnet build $(buildConfiguration) --no-restore'
 
 - task: DotNetCoreCLI@2
@@ -40,9 +40,9 @@ steps:
     command: 'pack'
     projects: |
       **/*.csproj
-      !**/MVC.csproj
-      !**/ImageUploaderInlineControl.RCL.KX13.csproj
-      !**/WidgetizedHeaderFooter.RCL.KX13.csproj
+      !**/*MVC.csproj
+      !**/*ImageUploaderInlineControl.RCL.KX13.csproj
+      !**/*WidgetizedHeaderFooter.RCL.KX13.csproj
     arguments: '-o $(Build.ArtifactStagingDirectory)/Output --no-build'
 
 - task: DotNetCoreCLI@2
