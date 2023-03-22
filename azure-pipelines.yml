@@ -4,6 +4,7 @@
 # https://aka.ms/yaml
 variables:
   buildConfiguration: 'Release'
+  packageVersion: '1.0.$(Build.BuildId)'
   
 trigger:
 - master
@@ -40,6 +41,8 @@ steps:
     command: 'pack'
     packDirectory: '$(Build.ArtifactStagingDirectory)/Output'
     nobuild: true
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'packageVersion'
     packagesToPack: '**/*.csproj;!**/MVC.csproj;!**/ImageUploaderInlineControl.RCL.KX13.csproj;!**/WidgetizedHeaderFooter.RCL.KX13.csproj'
 
 - task: DotNetCoreCLI@2
